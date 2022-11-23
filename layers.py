@@ -14,4 +14,5 @@ class Affine:
     def backward(self, dout):
         self.dW = np.dot(self.x.T, dout)
         self.db = dout
-        return self.dW, self.db
+        self.dx = np.dot(dout, self.W.T)
+        return self.dx
