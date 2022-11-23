@@ -1,4 +1,5 @@
 import numpy as np
+
 class Affine:
     def __init__(self, W, b):
         self.W = W
