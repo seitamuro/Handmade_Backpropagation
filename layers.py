@@ -16,3 +16,17 @@ class Affine:
         self.db = dout
         self.dx = np.dot(dout, self.W.T)
         return self.dx
+
+class ReLU:
+    def __init__(self):
+        pass
+
+    def forward(self, x):
+        self.mask = x <= 0
+        x[self.mask] = 0
+        return x
+
+    def backward(self, dout):
+        dout = dout.copy()
+        dout[self.mask] = 0
+        return dout
