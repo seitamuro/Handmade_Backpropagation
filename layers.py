@@ -8,9 +8,10 @@ class Affine:
         self.db = None
 
     def forward(self, x):
+        self.x = x
         return np.dot(x, self.W) + self.b
 
     def backward(self, dout):
-        self.dW = np.dot(dout, self.W.T)
+        self.dW = np.dot(self.x.T, dout)
         self.db = dout
         return self.dW, self.db
