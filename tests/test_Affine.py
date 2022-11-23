@@ -14,5 +14,9 @@ class TestAffineLayer(unittest.TestCase):
         layer = Affine(W, b)
         self.assertTrue((y == layer.forward(x)).all())
 
-
-
+    def test_backward(self):
+        W = np.array([[1, 2, 3]])
+        b = np.array([1, 2, 3])
+        x = np.array([1])
+        y = np.array([2, 4, 6])
+        layer = Affine(W, b)
